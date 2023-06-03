@@ -8,20 +8,20 @@ const Card = ({ imageSrc, title, location, }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("ItemScreen", { param: data })}
-      className="rounded-md border border-gray-300 space-y-2 px-3 py-2 shadow-md bg-white w-[180px] my-2"
+      className="rounded-md px-0 py-0 flex-1 shadow-md bg-gray-200 w-[150px] my-2 mx-1"
     >
       <Image
         source={{ uri: imageSrc }}
-        className="w-full h-40 rounded-md object-cover"
+        className="w-full h-20 rounded-md object-cover"
       />
 
       {title ? (
         <>
-          <Text className="text-[#428288] text-[18px] font-bold">
+          <Text className="text-[#428288] text-[18px] font-bold mx-3 mt-2">
             {title?.length > 14 ? `${title.slice(0, 14)}..` : title}
           </Text>
 
-          <View className="flex-row items-center space-x-1">
+          <View className="flex-row items-center space-x-1 mx-3 my-3">
             <FontAwesome name="map-marker" size={20} color="#8597A2" />
             <Text className="text-[#428288] text-[14px] font-bold">
               {location?.length > 18 ? `${title.slice(0, 18)}..` : location}
