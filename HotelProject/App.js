@@ -13,7 +13,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="HomeTab" component={HomeTab} />
         </Stack.Navigator>
-        <StatusBar barStyle="dark-content" backgroundColor="rgba(0,0,0,0)" />
+        {/* <StatusBar barStyle="dark-content" backgroundColor="rgba(0,0,0,0)" /> */}
       </NavigationContainer>
     </TailwindProvider>
   );

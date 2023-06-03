@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text,ScrollView, Image } from 'react-native';
+import { View, Text,ScrollView, Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import images from "../../assets/image";
@@ -15,8 +15,7 @@ const WishlistScreen = () => {
   }, []);
   return (
     <SafeAreaView className="bg-white flex-1 relative">
-      <ScrollView>
-      <View className="flex-row items-center justify-between px-8">
+      <View className="flex-row items-center justify-between px-8 pb-10">
         <View>
           <Text className="text-[40px] text-[#0B646B] font-bold">Wishlist</Text>
           <Text className="text-[#527283] text-[20px]">Hotel you are looking for</Text>
@@ -29,6 +28,7 @@ const WishlistScreen = () => {
           />
         </View>
       </View>
+      <ScrollView>
       <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">                
           <Card
             key={"101"}
@@ -41,7 +41,43 @@ const WishlistScreen = () => {
             imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
             title={"Hotel 2"}
             location={"Jawa Timur"}
-          />         
+          />  
+          <Card
+            key={"103"}
+            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
+            title={"Hotel 1"}
+            location={"Jawa Timur"}
+          />
+          <Card
+            key={"104"}
+            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
+            title={"Hotel 2"}
+            location={"Jawa Timur"}
+          />  
+          <Card
+            key={"105"}
+            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
+            title={"Hotel 1"}
+            location={"Jawa Timur"}
+          />
+          <Card
+            key={"106"}
+            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
+            title={"Hotel 2"}
+            location={"Jawa Timur"}
+          />  
+          <Card
+            key={"7"}
+            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
+            title={"Hotel 1"}
+            location={"Jawa Timur"}
+          />
+          <Card
+            key={"108"}
+            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
+            title={"Hotel 2"}
+            location={"Jawa Timur"}
+          />        
         </View>
       </ScrollView>
     </SafeAreaView>
