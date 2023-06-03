@@ -3,8 +3,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import HomeStackScreen from '../stackNavigator/HomeStackScreen';
 import ProfileStackScreen from '../stackNavigator/ProfileStackScreen';
-import BookingStackScreen from '../stackNavigator/BookingStackScreen';
 import BookingHistoryStackScreen from '../stackNavigator/BookingHistoryStackScreen'
+import WishlistStackScreen from '../stackNavigator/WishlistStackScreen';
 
 const Tab = createBottomTabNavigator();
 const HomeTab = () => {
@@ -17,10 +17,10 @@ const HomeTab = () => {
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'BookingHistory') {
-            iconName = focused ? 'settings' : 'settings-outline';
+            iconName = focused ? 'archive' : 'archive-outline';
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
-          } else if (route.name === 'Booking') {
+          } else if (route.name === 'wishlist') {
             iconName = focused ? 'bookmark' : 'bookmark-outline';
           }
 
@@ -33,7 +33,7 @@ const HomeTab = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeStackScreen} />
-      <Tab.Screen name="Booking" component={BookingStackScreen} />
+      <Tab.Screen name="wishlist" component={WishlistStackScreen} />
       <Tab.Screen name="BookingHistory" component={BookingHistoryStackScreen} />
       <Tab.Screen name="Profile" component={ProfileStackScreen} />
     </Tab.Navigator>
