@@ -1,0 +1,51 @@
+import React, { useLayoutEffect } from "react";
+import { View, Text,ScrollView, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from "@react-navigation/native";
+import images from "../../assets/image";
+import Card from "../../component/card/Card";
+
+const WishlistScreen = () => {
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+  return (
+    <SafeAreaView className="bg-white flex-1 relative">
+      <ScrollView>
+      <View className="flex-row items-center justify-between px-8">
+        <View>
+          <Text className="text-[40px] text-[#0B646B] font-bold">Wishlist</Text>
+          <Text className="text-[#527283] text-[20px]">Hotel you are looking for</Text>
+        </View>
+
+        <View className="w-20 h-20 rounded-md items-center justify-center shadow-lg">
+          <Image
+            source={images.logo}
+            className="w-full h-full rounded-md object-cover"
+          />
+        </View>
+      </View>
+      <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">                
+          <Card
+            key={"101"}
+            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
+            title={"Hotel 1"}
+            location={"Jawa Timur"}
+          />
+          <Card
+            key={"102"}
+            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
+            title={"Hotel 2"}
+            location={"Jawa Timur"}
+          />         
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default WishlistScreen;
