@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   TextInput,
-  Keyboard,
+  Keyboard
 } from "react-native";
 
 import images from "../../assets/image";
@@ -30,6 +30,7 @@ const HomeScreen = () => {
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [showCheckInPicker, setShowCheckInPicker] = useState(false);
   const [showCheckOutPicker, setShowCheckOutPicker] = useState(false);
+  const [guests, setGuests] = useState('');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -59,13 +60,29 @@ const HomeScreen = () => {
     setShowCheckOutPicker(true);
   };
 
-  const inputRef = useRef(null);
+  const whereToGoRef = useRef(null);
+  const guestRef = useRef(null);
 
-  const handlePress = () => {
+  const handleGuestsChange = (text) => {
+    const numericText = text.replace(/[^0-9]/g, '');
+    setGuests(numericText);
+  };
+
+  const handleWhereToGoSubmit = () => {
+    // Focus on the guest input field when Enter is pressed on the "Where to go" input field
+    guestRef.current.focus();
+  };
+
+  const handlePressWhereToGo = () => {
+    // Dismiss the keyboard when pressing outside of the input fields
     Keyboard.dismiss();
-    setTimeout(() => {
-      inputRef.current.focus();
-    }, 200);
+    whereToGoRef.current.focus();
+  };
+
+  const handlePressGuest = () => {
+    // Dismiss the keyboard when pressing outside of the input fields
+    Keyboard.dismiss();
+    guestRef.current.focus();
   };
 
   return (
@@ -75,14 +92,15 @@ const HomeScreen = () => {
       {/* search bar */}
       <View className="fixed top-0 left-0 right-0 z-10 bg-gray-300 rounded-md mx-4 mt-4 p-4">
         
-        <TouchableOpacity className="bg-white rounded-md py-2 px-4" onPress={handlePress}>
+        <TouchableOpacity onPress={handlePressWhereToGo} className="bg-white rounded-md py-2 px-4" >
           <TextInput
-              ref={inputRef}
+              ref={whereToGoRef}
               className="text-lg font-bold text-[#0B646B]"
               placeholder="Where to go?"
               keyboardType="default"
+              onSubmitEditing={handleWhereToGoSubmit}
           />
-        </TouchableOpacity>
+        </TouchableOpacity >
 
         <View className="flex-row mt-2">
           <TouchableOpacity className="bg-white rounded-md py-2 px-4 flex-1 mr-2" onPress={showCheckInDatePicker}>
@@ -119,12 +137,14 @@ const HomeScreen = () => {
 
         </View>
 
-        <TouchableOpacity className="flex" onPress={handlePress}>
+        <TouchableOpacity className="flex" onPress={handlePressGuest}>
           <TextInput
-            ref={inputRef}
+            ref={guestRef}
+            value={guests}
+            onChangeText={handleGuestsChange}
             className="bg-white rounded-md py-2 px-4 mt-2"
             placeholder="Guest"
-            keyboardType="numeric"
+            keyboardType="number-pad"
           />
         </TouchableOpacity>
 
