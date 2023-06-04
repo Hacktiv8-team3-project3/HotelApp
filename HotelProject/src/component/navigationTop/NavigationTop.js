@@ -3,14 +3,14 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function NavigationTop({ nameIcon, title, colorTitle }) {
+export default function NavigationTop({ nameIcon, title }) {
   const navigation = useNavigation();
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-      <TouchableOpacity onPress={() => (title !== 'Home' ? navigation.goBack() : null)} style={{ backgroundColor: '#F1F5FE', padding: 8, borderRadius: 50 }}>
+    <View className='flex-row justify-start items-center'>
+      <TouchableOpacity onPress={() => (title !== 'Home' ? navigation.goBack() : null)} className='bg-white p-2'>
         <Icon name={`${nameIcon}`} size={24} />
       </TouchableOpacity>
-      <Text style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 10, color: colorTitle ? colorTitle : 'black' }}>{title}</Text>
+      <Text className='text-base font-bold ml-2.5 text-black'>{title}</Text>
     </View>
   );
 }
