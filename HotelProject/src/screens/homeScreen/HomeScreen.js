@@ -69,18 +69,15 @@ const HomeScreen = () => {
   };
 
   const handleWhereToGoSubmit = () => {
-    // Focus on the guest input field when Enter is pressed on the "Where to go" input field
     guestRef.current.focus();
   };
 
   const handlePressWhereToGo = () => {
-    // Dismiss the keyboard when pressing outside of the input fields
     Keyboard.dismiss();
     whereToGoRef.current.focus();
   };
 
   const handlePressGuest = () => {
-    // Dismiss the keyboard when pressing outside of the input fields
     Keyboard.dismiss();
     guestRef.current.focus();
   };
