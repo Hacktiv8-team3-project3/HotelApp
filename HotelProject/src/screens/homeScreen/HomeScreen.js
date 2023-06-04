@@ -155,7 +155,7 @@ const HomeScreen = () => {
 
       </View>
 
-      {/* Top destination */}
+      {/* Fetch */}
       {isLoading ? (
 
         <View className=" flex-1 items-center justify-center">
@@ -196,7 +196,7 @@ const HomeScreen = () => {
           <View>
             <View className="flex-row items-center justify-between px-4 mt-8">
               <Text className="text-[#2C7379] text-[20px] font-bold">
-                Top Destinations
+                Kota-Kota di Indonesia
               </Text>
               <TouchableOpacity className="flex-row items-center justify-center space-x-2">
                 <Text className="text-[#A0C4C7] text-[16px] font-bold">
