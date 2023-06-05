@@ -1,13 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import { View, Text,ScrollView, Image} from 'react-native';
-import { useSelector } from 'react-redux';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import images from "../../assets/image";
 import Card from "../../component/card/Card";
 
 const WishlistScreen = () => {
-  const profile = useSelector((store) => store.profile);
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -32,7 +30,7 @@ const WishlistScreen = () => {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
       <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">                
-          {/* <Card
+          <Card
             key={"101"}
             imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
             title={"Hotel 1"}
@@ -79,15 +77,7 @@ const WishlistScreen = () => {
             imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
             title={"Hotel 2"}
             location={"Jawa Timur"}
-          />         */}
-          {profile.wishlist.length > 0 ? (
-            profile.wishlist?.map((item, index) => <Card item={item} key={index} />)
-          ) : (
-            <View className="min-h-full items-center justify-center flex-1">
-              <Icon name="heart-dislike-outline" size={30} />
-              <Text style={{ lineHeight: 30, fontWeight: '500' }}>No Wishlist</Text>
-            </View>
-          )}
+          />        
         </View>
       </ScrollView>
     </SafeAreaView>

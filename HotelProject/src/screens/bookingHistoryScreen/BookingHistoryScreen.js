@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
 const BookingHistoryScreen = () => {
-  const profile = useSelector((store) => store.profile);
+  const profile = useSelector((store) => store.login);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const BookingHistoryScreen = () => {
            <Icon name="person-circle-outline" size={50} />
           <View>
             <Text className='text-xl font-bold'>Nama</Text>
-            <Text>{profile.login?.email}</Text>
+            <Text>{profile.login?.username}</Text>
           </View>
         </View>
         {/* <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, marginVertical: 10 }}> */}

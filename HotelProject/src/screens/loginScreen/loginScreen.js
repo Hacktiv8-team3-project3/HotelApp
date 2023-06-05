@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-
-import { View, TextInput, Text, Alert } from "react-native";
-import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { View, TextInput, Text, Alert, Button } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "./../../redux/actions/loginActions";
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
+  const profile = useSelector((store) => store.login);
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     const hardcodedUsername = 'johndoe';
@@ -22,7 +24,7 @@ const LoginScreen = () => {
   };
 
   useEffect(() => {
-    if (profile.login?.email) {
+    if (profile.login?.username) {
       return navigation.goBack();
     }
   });
