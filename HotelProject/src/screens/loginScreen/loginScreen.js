@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import { View, TextInput, TouchableOpacity, Text } from "react-native";
+import { View, TextInput, Text, Alert } from "react-native";
+import { useDispatch } from "react-redux";
+import { login } from "./../../redux/actions/loginActions";
 
-const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const LoginScreen = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
-    console.log("Logging in...");
+    const hardcodedUsername = 'johndoe';
+    const hardcodedPassword = 'password';
+
+    if (username === hardcodedUsername && password === hardcodedPassword) {
+      dispatch(login());
+    } else {
+      Alert.alert('Invalid login credentials');
+    }
   };
 
   return (
@@ -15,9 +25,9 @@ const LoginPage = () => {
         <Text className="text-2xl font-bold text-center mb-6">Login</Text>
         <TextInput
           className="bg-white border border-gray-400 rounded-md px-4 py-2 mb-4"
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
         />
         <TextInput
           className="bg-white border border-gray-400 rounded-md px-4 py-2 mb-4"
@@ -26,15 +36,11 @@ const LoginPage = () => {
           value={password}
           onChangeText={setPassword}
         />
-        <TouchableOpacity
-          className="bg-blue-500 rounded-md py-2"
-          onPress={handleLogin}
-        >
-          <Text className="text-white text-lg text-center">Login</Text>
-        </TouchableOpacity>
+        <Button className="bg-blue-500 rounded-md py-2" title="Login" onPress={handleLogin} />
+
       </View>
     </View>
   );
 };
 
-export default LoginPage;
+export default LoginScreen;
