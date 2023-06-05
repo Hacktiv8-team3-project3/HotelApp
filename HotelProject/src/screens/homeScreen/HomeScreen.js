@@ -22,6 +22,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const HomeScreen = () => {
 
   const navigation = useNavigation();
+  const whereToGoRef = useRef(null);
+  const guestRef = useRef(null);
 
   const [type, setType] = useState("restaurants");
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +33,7 @@ const HomeScreen = () => {
   const [showCheckInPicker, setShowCheckInPicker] = useState(false);
   const [showCheckOutPicker, setShowCheckOutPicker] = useState(false);
   const [guests, setGuests] = useState('');
-
+  
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -59,9 +61,6 @@ const HomeScreen = () => {
   const showCheckOutDatePicker = () => {
     setShowCheckOutPicker(true);
   };
-
-  const whereToGoRef = useRef(null);
-  const guestRef = useRef(null);
 
   const handleGuestsChange = (text) => {
     const numericText = text.replace(/[^0-9]/g, '');
@@ -164,7 +163,7 @@ const HomeScreen = () => {
           <View className="flex-row items-center justify-between px-8 mt-8">
             <View>
               <Text className="text-[24px] text-[#0B646B] font-bold">Discover</Text>
-              <Text className="text-[#527283] text-[20px]">the beauty today</Text>
+              <Text className="text-[#527283] text-[20px]">Wonderful Indonesia</Text>
             </View>
 
             <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center shadow-lg">
@@ -175,20 +174,6 @@ const HomeScreen = () => {
             </View>
           </View>
 
-          <View className=" flex-row items-center justify-between px-8 mt-8">
-            <Card
-              key={"101"}
-              imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
-              title={"Hotel 1"}
-              location={"Jawa Timur"}
-            />
-            <Card
-              key={"102"}
-              imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
-              title={"Hotel 2"}
-              location={"Jawa Timur"}
-            />  
-          </View>
 
           <View>
             <View className="flex-row items-center justify-between px-4 mt-8">
@@ -210,7 +195,10 @@ const HomeScreen = () => {
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
               {mainData?.length > 0 ? (
                 <>
-                  {mainData?.map((data, i) => (
+
+                  {/* coba fetch api di sini yaa */}
+
+                  {/* {mainData?.map((data, i) => (
                     <ItemCarDontainer
                       key={i}
                       imageSrc={
@@ -222,7 +210,7 @@ const HomeScreen = () => {
                       location={data?.location_string}
                       data={data}
                     />
-                  ))}
+                  ))} */}
                 </>
               ) : (
                 <>
@@ -260,7 +248,10 @@ const HomeScreen = () => {
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
               {mainData?.length > 0 ? (
                 <>
-                  {mainData?.map((data, i) => (
+
+                  {/* coba fetch api di sini yaa */}
+                  
+                  {/* {mainData?.map((data, i) => (
                     <ItemCarDontainer
                       key={i}
                       imageSrc={
@@ -272,7 +263,7 @@ const HomeScreen = () => {
                       location={data?.location_string}
                       data={data}
                     />
-                  ))}
+                  ))} */}
                 </>
               ) : (
                 <>
