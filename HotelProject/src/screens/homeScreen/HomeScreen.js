@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useRef } from "react";
+import React, { useLayoutEffect, useState, useRef, useEffect } from "react";
 
 import {
   View,
@@ -13,11 +13,13 @@ import {
 } from "react-native";
 
 import images from "../../assets/image";
-import Card from "../../component/card/Card";
 import { useNavigation } from "@react-navigation/native";
-import ItemCarDontainer from "../../component/itemCarDontainer";
 import { FontAwesome } from "@expo/vector-icons";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { fetchBookingData } from "../../api/api";
+
+import ItemCarDontainer from "../../component/itemCarDontainer";
+import Card from "../../component/card/Card";
 
 const HomeScreen = () => {
 
@@ -33,6 +35,20 @@ const HomeScreen = () => {
   const [showCheckInPicker, setShowCheckInPicker] = useState(false);
   const [showCheckOutPicker, setShowCheckOutPicker] = useState(false);
   const [guests, setGuests] = useState('');
+  const [deals, setDeals] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const data = await fetchBookingData();
+      setDeals(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -198,19 +214,10 @@ const HomeScreen = () => {
 
                   {/* coba fetch api di sini yaa */}
 
-                  {/* {mainData?.map((data, i) => (
-                    <ItemCarDontainer
-                      key={i}
-                      imageSrc={
-                        data?.photo?.images?.medium?.url
-                          ? data?.photo?.images?.medium?.url
-                          : "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg"
-                      }
-                      title={data?.name}
-                      location={data?.location_string}
-                      data={data}
-                    />
-                  ))} */}
+                  {deals.map((deal, index) => (
+                    <Text key={index}>{deal.name}</Text>
+                  ))}
+
                 </>
               ) : (
                 <>
@@ -250,7 +257,7 @@ const HomeScreen = () => {
                 <>
 
                   {/* coba fetch api di sini yaa */}
-                  
+
                   {/* {mainData?.map((data, i) => (
                     <ItemCarDontainer
                       key={i}
