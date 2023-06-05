@@ -1,15 +1,16 @@
-import { View, Text, ScrollView, Dimensions} from 'react-native';
+import { View, Text, ScrollView} from 'react-native';
 import React from 'react';
+import { NavigationTop } from '../../component';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const InformationScreen = () => {
-  const { height } = Dimensions.get('screen');
+  
   return (
     <SafeAreaView>
       <View style={{ backgroundColor: '#fff' }}>
-        <NavigationTop nameIcon="arrow-back" title="Information" />
+        <NavigationTop nameIcon="chevron-back" title="Information" />
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} style={{ padding: 15, minHeight: height, backgroundColor: '#FBFCFD' }}>
+      <ScrollView showsVerticalScrollIndicator={false} className='bg-white py-3 rounded-lg'>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Hotel App</Text>
