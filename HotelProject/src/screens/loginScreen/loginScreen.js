@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { View, TextInput, Text, Alert, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./../../redux/actions/loginActions";
@@ -25,9 +24,10 @@ const LoginScreen = () => {
 
   useEffect(() => {
     if (profile.login?.username) {
-      return navigation.goBack();
+      navigation.navigate('HomeScreen');
     }
-  });
+  }, [profile.login?.username]);
+
   return (
     <View className="flex-1 justify-center items-center">
       <View className="w-3/4">
