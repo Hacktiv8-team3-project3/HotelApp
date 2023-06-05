@@ -15,7 +15,7 @@ const WishlistScreen = () => {
   }, []);
   return (
     <SafeAreaView className="bg-white flex-1 relative">
-      <View className="flex-row items-center justify-between px-8 pb-10">
+      <View className="flex-row items-center justify-between pt-9 px-8 pb-10">
         <View>
           <Text className="text-[40px] text-[#0B646B] font-bold">Wishlist</Text>
           <Text className="text-[#527283] text-[20px]">Hotel you are looking for</Text>

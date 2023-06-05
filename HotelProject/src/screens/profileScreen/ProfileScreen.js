@@ -8,7 +8,7 @@ const MenuScreen = () => {
   return (
     <SafeAreaView className="flex-1 relative">
       <View className='bg-white top-0 justify-between p-1 mb-3'>
-        <NavigationTop nameIcon="arrow-back" title="Setting" />
+        <NavigationTop nameIcon="chevron-back" title="Setting" />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View className='bg-white p-3 rounded-lg mx-1 mb-3'>
@@ -23,14 +23,14 @@ const MenuScreen = () => {
             />
           </View>
           <View className='pb-1.5'>
-            <Text className='text-lg font-bold'>Username</Text>
+            <Text className='text-lg font-bold'>Email</Text>
             <TextInput
               className="bg-slate-100 rounded-md py-2 px-4 mt-2shadow-md"
               placeholder="Email"
             />
           </View>
           <View className='pb-1.5'>
-            <Text className='text-lg font-bold'>Username</Text>
+            <Text className='text-lg font-bold'>Phone Number</Text>
             <TextInput
               className="bg-slate-100 rounded-md py-2 px-4 mt-2shadow-md"
               placeholder="Phone Number"
@@ -39,14 +39,14 @@ const MenuScreen = () => {
         </View>
         <View className='bg-white p-3 rounded-lg mx-1 mb-3'>
           <View className='pb-1.5 mb-1.5'>
-            {/* <TouchableOpacity onPress={() => navigation.navigate('InformationScreen')}> */}
+            <TouchableOpacity onPress={() => navigation.navigate('InformationScreen')}>
               <Text style={{ lineHeight: 24, fontSize: 16 }}>Information</Text>
-            {/* </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
           <View className='pb-1.5 mb-1.5'>
-            {/* <TouchableOpacity onPress={() => navigation.navigate('InformationScreen')}> */}
+            <TouchableOpacity onPress={() => navigation.navigate('loginScreen')}>
               <Text style={{ lineHeight: 24, fontSize: 16 }}>Logout</Text>
-            {/* </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>

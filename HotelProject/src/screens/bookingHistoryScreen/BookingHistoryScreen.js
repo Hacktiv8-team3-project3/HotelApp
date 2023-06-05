@@ -7,15 +7,15 @@ const BookingHistoryScreen = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View className='bg-white py-3 mx-2.5 rounded-lg flex-row items-center justify-evenly' >
+      <ScrollView showsVerticalScrollIndicator={false} className='pt-8 px-5'>
+        <View className='bg-white py-3 rounded-lg flex-row items-center justify-evenly' >
            <Icon name="person-circle-outline" size={50} />
           <View>
             <Text className='text-xl font-bold'>Nama</Text>
           </View>
         </View>
         {/* <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, marginVertical: 10 }}> */}
-        <View className='shadow-lg bg-white p-3 mx-2.5 rounded-lg my-8' >
+        <View className='shadow-lg bg-white p-3 rounded-lg my-8' >
           <View className='mb-1.5 min-h-screen'>
             <Text className='text-lg font-bold' >History Book</Text>
             <View className='my-8 flex-wrap flex-row justify-between'>
