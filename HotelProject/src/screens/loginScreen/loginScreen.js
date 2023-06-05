@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, Text } from "react-native";
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginPage = () => {
+
+const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const profile = useSelector((store) => store.profile);
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     console.log("Logging in...");
   };
 
+  useEffect(() => {
+    if (profile.login?.email) {
+      return navigation.goBack();
+    }
+  });
   return (
     <View className="flex-1 justify-center items-center">
       <View className="w-3/4">
@@ -37,4 +48,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginScreen;
