@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { View, TextInput, Text, Alert } from "react-native";
 import { useDispatch } from "react-redux";
 import { login } from "./../../redux/actions/loginActions";
@@ -7,6 +8,7 @@ const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+
 
   const handleLogin = () => {
     const hardcodedUsername = 'johndoe';
@@ -19,6 +21,11 @@ const LoginScreen = () => {
     }
   };
 
+  useEffect(() => {
+    if (profile.login?.email) {
+      return navigation.goBack();
+    }
+  });
   return (
     <View className="flex-1 justify-center items-center">
       <View className="w-3/4">

@@ -2,8 +2,10 @@ import { View, Text, ScrollView, TouchableOpacity, TextInput } from 'react-nativ
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationTop } from '../../component';
+import { useNavigation } from '@react-navigation/native';
 
 const MenuScreen = () => {
+  const navigation = useNavigation();
   
   return (
     <SafeAreaView className="flex-1 relative">
@@ -44,7 +46,7 @@ const MenuScreen = () => {
             </TouchableOpacity>
           </View>
           <View className='pb-1.5 mb-1.5'>
-            <TouchableOpacity onPress={() => navigation.navigate('loginScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
               <Text style={{ lineHeight: 24, fontSize: 16 }}>Logout</Text>
             </TouchableOpacity>
           </View>
