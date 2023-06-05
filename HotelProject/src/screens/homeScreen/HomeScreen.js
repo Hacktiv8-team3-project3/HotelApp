@@ -83,7 +83,7 @@ const HomeScreen = () => {
 
   return (
 
-    <SafeAreaView className="flex-1 bg-white relative">
+    <SafeAreaView className="flex-1 bg-white relative pt-9">
 
       {/* search bar */}
       <View className="fixed top-0 left-0 right-0 z-10 bg-gray-300 rounded-md mx-4 mt-4 p-4">

@@ -11,8 +11,8 @@ export default function App() {
   return (
     <TailwindProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeTab} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="HomeTab" component={HomeTab} />
         </Stack.Navigator>
         <StatusBar barStyle="dark-content" backgroundColor="rgba(0,0,0,0)" />
       </NavigationContainer>
