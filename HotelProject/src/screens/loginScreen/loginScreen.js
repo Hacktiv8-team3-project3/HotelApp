@@ -1,32 +1,56 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput, Text, Alert, Button } from "react-native";
+import { View, TextInput, Text, Alert,TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "./../../redux/actions/loginActions";
+// import { login } from "./../../redux/actions/loginActions";
 import { useNavigation } from '@react-navigation/native';
+import { loginUser } from '../../redux/reducers/loginReducer';
+
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const profile = useSelector((store) => store.login);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isFailure, setIsFailure] = useState(false);
+  const profile = useSelector((store) => store.profile);
   const navigation = useNavigation();
 
-  const handleLogin = () => {
-    const hardcodedUsername = 'johndoe';
-    const hardcodedPassword = 'password';
+  // const handleLogin = () => {
+  //   const hardcodedUsername = 'johndoe';
+  //   const hardcodedPassword = 'password';
 
-    if (username === hardcodedUsername && password === hardcodedPassword) {
-      dispatch(login());
-    } else {
-      Alert.alert('Invalid login credentials');
+  //   if (username === hardcodedUsername && password === hardcodedPassword) {
+  //     dispatch(login());
+  //   } else {
+  //     Alert.alert('Invalid login credentials');
+  //   }
+  // };
+  const handleLogin = () => {
+    setIsEmpty(false);
+    setIsFailure(false);
+    if (username === '' || password === '') {
+      return setIsEmpty((prevEmpty) => !prevEmpty);
+    }
+    dispatch(loginUser({ username, password, redirect, notFound }));
+  };
+
+  const notFound = (status) => {
+    if (status) {
+      setIsFailure((prevFailure) => !prevFailure);
+    }
+  };
+
+  const redirect = (status) => {
+    if (status) {
+      navigation.goBack();
     }
   };
 
   useEffect(() => {
-    if (profile.login?.username) {
-      navigation.navigate('HomeScreen');
+    if (profile.login?.email) {
+      return navigation.goBack();
     }
-  }, [profile.login?.username]);
+  });
 
   return (
     <View className="flex-1 justify-center items-center">
@@ -45,9 +69,22 @@ const LoginScreen = () => {
           value={password}
           onChangeText={setPassword}
         />
-        <Button className="bg-blue-500 rounded-md py-2" title="Login" onPress={handleLogin} />
-
+        <TouchableOpacity className="mt-3" onPress={handleLogin}>
+          <View className="bg-blue-500 rounded-md py-2">
+            <Text className="text-white text-[15px] text-center items-center">Login</Text>
+          </View>
+        </TouchableOpacity>
       </View>
+      {isEmpty && (
+        <View className="my-3">
+          <Text className="text-red-700 font-semibold tracking-widest">Please Fill Out All Forms</Text>
+        </View>
+      )}
+      {isFailure && (
+        <View className="my-3">
+          <Text className="text-red-700 font-semibold tracking-widest">wrong username or password</Text>
+        </View>
+      )}
     </View>
   );
 };

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
 const BookingHistoryScreen = () => {
-  const profile = useSelector((store) => store.login);
+  const profile = useSelector((store) => store.profile);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
