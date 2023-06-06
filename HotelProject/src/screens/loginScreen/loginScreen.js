@@ -15,6 +15,12 @@ const LoginScreen = () => {
   const profile = useSelector((store) => store.profile);
   const navigation = useNavigation();
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+  
   const handleLogin = () => {
     setIsEmpty(false);
     setIsFailure(false);
