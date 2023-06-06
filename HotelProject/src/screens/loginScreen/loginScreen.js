@@ -3,7 +3,7 @@ import { View, TextInput, Text, Alert,TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 // import { login } from "./../../redux/actions/loginActions";
 import { useNavigation } from '@react-navigation/native';
-import { loginUser } from '../../redux/reducers/loginReducer';
+import { loginUser } from '../../redux/slice/loginSlice';
 
 
 const LoginScreen = () => {
@@ -15,16 +15,6 @@ const LoginScreen = () => {
   const profile = useSelector((store) => store.profile);
   const navigation = useNavigation();
 
-  // const handleLogin = () => {
-  //   const hardcodedUsername = 'johndoe';
-  //   const hardcodedPassword = 'password';
-
-  //   if (username === hardcodedUsername && password === hardcodedPassword) {
-  //     dispatch(login());
-  //   } else {
-  //     Alert.alert('Invalid login credentials');
-  //   }
-  // };
   const handleLogin = () => {
     setIsEmpty(false);
     setIsFailure(false);
