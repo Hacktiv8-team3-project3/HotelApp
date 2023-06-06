@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { View, TextInput, Text, Alert,TouchableOpacity } from "react-native";
+import { View, TextInput, Text,TouchableOpacity, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 // import { login } from "./../../redux/actions/loginActions";
 import { useNavigation } from '@react-navigation/native';
@@ -49,7 +49,7 @@ const LoginScreen = () => {
   });
 
   return (
-    <View className="flex-1 justify-center items-center">
+    <SafeAreaView className="flex-1 justify-center items-center">
       <View className="w-3/4">
         <Text className="text-2xl font-bold text-center mb-6">Login</Text>
         <TextInput
@@ -81,7 +81,7 @@ const LoginScreen = () => {
           <Text className="text-red-700 font-semibold tracking-widest">wrong username or password</Text>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

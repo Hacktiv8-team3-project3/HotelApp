@@ -6,7 +6,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeTab from './src/navigation/tabNavigator/HomeTab';
 import store from './src/redux/store';
 import LoginScreen from './src/screens/loginScreen/loginScreen';
-
+import routes from './src/constants/routes';
+import DetailScreen from './src/screens/detailScreen/DetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,12 @@ export default function App() {
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="HomeTab" component={HomeTab} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
+            <Stack.Screen
+              name="DetailTab"
+              component={DetailScreen}
+              option={({ route }) => ({
+                title: route.params.userId,
+              })} />
           </Stack.Navigator>
           <StatusBar barStyle="dark-content" backgroundColor="rgba(0,0,0,0)" />
         </NavigationContainer>

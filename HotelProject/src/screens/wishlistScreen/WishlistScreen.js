@@ -13,6 +13,7 @@ const WishlistScreen = () => {
       headerShown: false,
     });
   }, []);
+  
   return (
     <SafeAreaView className="bg-white flex-1 relative">
       <View className="flex-row items-center justify-between pt-9 px-8 pb-10">

@@ -1,11 +1,11 @@
 const routes ={
-    LOGIN: "Login",
+    LOGIN: "LoginScreen",
 
-    SEARCH: "Search",
-    DETAIL: "Detail",
+    SEARCH: "SearchScreen",
+    DETAIL: "DetailTab",
     BOOK: "Booking",
 
-    EXPLORETAB: "ExploreTab",
+    HOMETAB: "HomeTab",
     EXPLORE: "Explore",
     FAVORITES: "Favorites",
     PROFILE: "Profile",
@@ -14,4 +14,4 @@ const routes ={
     ACCOUNT:"Account",
 };
 
-export default routes;
+export default {routes};

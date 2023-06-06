@@ -10,14 +10,15 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import routes from "../../constants/routes";
 import { 
-    AntDesign, MaterialCommunityIcons, 
+    AntDesign,
+    MaterialCommunityIcons, 
     Fontisto,
     MaterialIcons,
     FontAwesome,
 } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useDispatch, useSelector } from "react-redux";
-import { selectHotel } from "../redux/slices/bookingSlice";
+import { selectHotel } from "../../redux/slice/bookingSlice";
 import { LinearGradient } from "expo-linear-gradient";
 import { addWish, removeWish } from "../../redux/slice/wishlistSlice";
 
@@ -26,8 +27,7 @@ function DetailScreen({ route }) {
 
   const data = route?.params?.param;
   const dispatch = useDispatch();
-  const wishData = useSelector((state) => state.wishlists.wishlists);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const wishData = useSelector((state) => state.wishlist.wishlist);
 
   const handleWishlistClick = (item) => {
     dispatch(addWish(item));
@@ -38,12 +38,8 @@ function DetailScreen({ route }) {
   };
 
   const handleCheck = () => {
-    if (isAuthenticated) {
-      dispatch(selectHotel(data));
-      navigation.navigate(routes.BOOK);
-    } else {
-      navigation.navigate(routes.LOGIN);
-    }
+     dispatch(selectHotel(data));
+    navigation.navigate(routes.BOOK);
   };
 
   const isWishlist = wishData.find((wish) => wish.name === data.name);
