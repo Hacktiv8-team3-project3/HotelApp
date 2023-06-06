@@ -13,7 +13,7 @@ export const fetchHotelData = createAsyncThunk(
   async () => {
     const {
       data: { result },
-    } = await axios.get(`https://booking-com.p.rapidapi.com/v1/static/hotels`, {
+    } = await axios.get(`https://booking-com.p.rapidapi.com/v1/hotels`, {
       params: { page: "0" },
       headers: {
         "X-RapidAPI-Key": "9e09bd3a5amsh36d707dbf729466p18da5ejsna8e5e2ce1f46",
