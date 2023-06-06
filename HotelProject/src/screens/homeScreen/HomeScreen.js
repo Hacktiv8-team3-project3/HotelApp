@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useState, useRef, useEffect } from "react";
-
 import {
   View,
   Text,
@@ -11,12 +10,19 @@ import {
   TextInput,
   Keyboard
 } from "react-native";
-
 import images from "../../assets/image";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import DateTimePicker from '@react-native-community/datetimepicker';
-// import { fetchBookingData } from "../../api/api";
+import {
+  fetchHotelData,
+  fetchHotelId,
+  fetchHotelPop,
+  getAllHotel,
+} from "../../redux/slice/hotelSlice";
+import ItemContainer from "../../component/itemContainer";
+import { useDispatch, useSelector } from "react-redux";
+import MenuContainer from "../../component/menuContainer";
 
 const HomeScreen = () => {
 
@@ -24,28 +30,23 @@ const HomeScreen = () => {
   const whereToGoRef = useRef(null);
   const guestRef = useRef(null);
 
-  const [type, setType] = useState("restaurants");
   const [isLoading, setIsLoading] = useState(false);
-  const [mainData, setMainData] = useState([]);
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [showCheckInPicker, setShowCheckInPicker] = useState(false);
   const [showCheckOutPicker, setShowCheckOutPicker] = useState(false);
   const [guests, setGuests] = useState('');
-  const [deals, setDeals] = useState([]);
+  const dispatch = useDispatch();
+  const hotels = useSelector(getAllHotel);
+  const idHotels = useSelector((state) => state.hotels.top);
+  const popHotels = useSelector((state) => state.hotels.pop);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   try {
-  //     const data = await fetchBookingData();
-  //     setDeals(data);
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // };
+  useEffect(() => {
+    dispatch(fetchHotelData());
+    dispatch(fetchHotelId());
+    dispatch(fetchHotelPop());
+    console.log(popHotels);
+  }, [dispatch]);
   
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -194,27 +195,13 @@ const HomeScreen = () => {
                 Kota-Kota di Indonesia
               </Text>
               <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-                <Text className="text-[#A0C4C7] text-[16px] font-bold">
-                  Explore
-                </Text>
-                <FontAwesome
-                  name="long-arrow-right"
-                  size={20}
-                  color="#A0C4C7"
-                />
               </TouchableOpacity>
             </View>
 
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-              {mainData?.length > 0 ? (
+              {hotels?.length > 0 ? (
                 <>
-
-                  {/* coba fetch api di sini yaa */}
-
-                  {/* {deals.map((deal, index) => (
-                    <Text key={index}>{deal.name}</Text>
-                  ))} */}
-
+                  {/* <MenuContainer hotels={popHotels} /> */}
                 </>
               ) : (
                 <>
@@ -238,36 +225,14 @@ const HomeScreen = () => {
                 Popular Destinations
               </Text>
               <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-                <Text className="text-[#A0C4C7] text-[16px] font-bold">
-                  Explore
-                </Text>
-                <FontAwesome
-                  name="long-arrow-right"
-                  size={20}
-                  color="#A0C4C7"
-                />
+
               </TouchableOpacity>
             </View>
 
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-              {mainData?.length > 0 ? (
+              {hotels?.length > 0 ? (
                 <>
-
-                  {/* coba fetch api di sini yaa */}
-
-                  {/* {mainData?.map((data, i) => (
-                    <ItemCarDontainer
-                      key={i}
-                      imageSrc={
-                        data?.photo?.images?.medium?.url
-                          ? data?.photo?.images?.medium?.url
-                          : "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg"
-                      }
-                      title={data?.name}
-                      location={data?.location_string}
-                      data={data}
-                    />
-                  ))} */}
+                  {/* <ItemContainer hotels={idHotels} /> */}
                 </>
               ) : (
                 <>
