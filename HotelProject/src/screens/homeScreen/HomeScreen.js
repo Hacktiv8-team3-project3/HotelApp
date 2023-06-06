@@ -16,7 +16,7 @@ import images from "../../assets/image";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { fetchBookingData } from "../../api/api";
+// import { fetchBookingData } from "../../api/api";
 
 const HomeScreen = () => {
 
@@ -34,18 +34,18 @@ const HomeScreen = () => {
   const [guests, setGuests] = useState('');
   const [deals, setDeals] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  const fetchData = async () => {
-    try {
-      const data = await fetchBookingData();
-      setDeals(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const data = await fetchBookingData();
+  //     setDeals(data);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
   
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -211,9 +211,9 @@ const HomeScreen = () => {
 
                   {/* coba fetch api di sini yaa */}
 
-                  {deals.map((deal, index) => (
+                  {/* {deals.map((deal, index) => (
                     <Text key={index}>{deal.name}</Text>
-                  ))}
+                  ))} */}
 
                 </>
               ) : (

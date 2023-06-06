@@ -11,7 +11,9 @@ const initialState = {
 export const fetchHotelData = createAsyncThunk(
   "hotel/fetchHotelData",
   async () => {
+    console.log("AA");
     const {
+        
       data: { result },
     } = await axios.get(`https://booking-com.p.rapidapi.com/v1/hotels`, {
       params: { page: "0" },
