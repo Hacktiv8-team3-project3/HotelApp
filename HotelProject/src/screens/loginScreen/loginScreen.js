@@ -48,13 +48,13 @@ const LoginScreen = () => {
         <Text className="text-2xl font-bold text-center mb-6">Login</Text>
         <TextInput
           className="bg-white border border-gray-400 rounded-md px-4 py-2 mb-4"
-          placeholder="Username"
+          placeholder="johndoe"
           value={username}
           onChangeText={setUsername}
         />
         <TextInput
           className="bg-white border border-gray-400 rounded-md px-4 py-2 mb-4"
-          placeholder="Password"
+          placeholder="12345"
           secureTextEntry
           value={password}
           onChangeText={setPassword}
