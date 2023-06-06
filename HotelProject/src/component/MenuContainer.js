@@ -9,6 +9,13 @@ function MenuContainer({ hotels }) {
   return (
     <View className="flex-1 justify-center items-center">
       <View className="flex-1 bg-white">
+
+          <Text className="text-[#2C7379] text-[20px] font-bold">
+            Popular di Kota Indonesia
+          </Text>
+          <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+          </TouchableOpacity>
+
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {hotels?.map((destination, idx) => (
             <TouchableOpacity

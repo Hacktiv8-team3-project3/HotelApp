@@ -188,67 +188,28 @@ const HomeScreen = () => {
             </View>
           </View>
 
-
-          <View>
-            <View className="flex-row items-center justify-between px-4 mt-8">
-              <Text className="text-[#2C7379] text-[20px] font-bold">
-                Kota-Kota di Indonesia
-              </Text>
-              <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-              </TouchableOpacity>
-            </View>
-
-            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-              {hotels?.length > 0 ? (
-                <>
-                  {/* <MenuContainer hotels={popHotels} /> */}
-                </>
-              ) : (
-                <>
-                  <View className="w-full h-[400px] items-center space-y-8 justify-center">
-                    <Image
-                      source={images.notFound}
-                      className=" w-32 h-32 object-cover"
-                    />
-                    <Text className="text-2xl text-[#428288] font-semibold">
-                      Opps...No Data Found
-                    </Text>
-                  </View>
-                </>
-              )}
-            </View>
+            
+          <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+            {hotels?.length > 0 ? (
+              <>
+                {/* <MenuContainer hotels={popHotels} />
+                <ItemContainer hotels={idHotels} /> */}
+              </>
+            ) : (
+              <>
+                <View className="w-full h-[400px] items-center space-y-8 justify-center">
+                  <Image
+                    source={images.notFound}
+                    className=" w-32 h-32 object-cover"
+                  />
+                  <Text className="text-2xl text-[#428288] font-semibold">
+                    Opps...No Data Found
+                  </Text>
+                </View>
+              </>
+            )}
           </View>
 
-          <View>
-            <View className="flex-row items-center justify-between px-4 mt-8">
-              <Text className="text-[#2C7379] text-[20px] font-bold">
-                Popular Destinations
-              </Text>
-              <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-
-              </TouchableOpacity>
-            </View>
-
-            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
-              {hotels?.length > 0 ? (
-                <>
-                  {/* <ItemContainer hotels={idHotels} /> */}
-                </>
-              ) : (
-                <>
-                  <View className="w-full h-[400px] items-center space-y-8 justify-center">
-                    <Image
-                      source={images.notFound}
-                      className=" w-32 h-32 object-cover"
-                    />
-                    <Text className="text-2xl text-[#428288] font-semibold">
-                      Opps...No Data Found
-                    </Text>
-                  </View>
-                </>
-              )}
-            </View>
-          </View>
 
         </ScrollView>
       )}
