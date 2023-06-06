@@ -18,9 +18,6 @@ import { FontAwesome } from "@expo/vector-icons";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { fetchBookingData } from "../../api/api";
 
-import ItemCarDontainer from "../../component/itemCarDontainer";
-import Card from "../../component/card/Card";
-
 const HomeScreen = () => {
 
   const navigation = useNavigation();
@@ -108,7 +105,7 @@ const HomeScreen = () => {
           <TextInput
               ref={whereToGoRef}
               className="text-lg font-bold text-[#0B646B]"
-              placeholder="Where to go?"
+              placeholder="Where?"
               keyboardType="default"
               onSubmitEditing={handleWhereToGoSubmit}
           />
