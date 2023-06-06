@@ -37,9 +37,9 @@ const loginReducer = createSlice({
     changeProfile: (state, action) => {
       state.login = action.payload;
     },
-    bookingAdded: (state, action) => {
-      state.historyBook.push(action.payload);
-    },
+    // bookingAdded: (state, action) => {
+    //   state.historyBook.push(action.payload);
+    // },
     logout: (state, action) => {
       state.login = [];
     },
@@ -51,5 +51,5 @@ const loginReducer = createSlice({
   },
 });
 
-export const { logout, bookingAdded, changeProfile, wishlistAdded, unWishlist } = loginReducer.actions;
+export const { logout, changeProfile, wishlistAdded, unWishlist } = loginReducer.actions;
 export default loginReducer.reducer;
