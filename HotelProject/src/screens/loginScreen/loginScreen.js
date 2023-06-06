@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { View, TextInput, Text, Alert,TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 // import { login } from "./../../redux/actions/loginActions";
@@ -20,7 +20,7 @@ const LoginScreen = () => {
       headerShown: false,
     });
   }, []);
-  
+
   const handleLogin = () => {
     setIsEmpty(false);
     setIsFailure(false);
