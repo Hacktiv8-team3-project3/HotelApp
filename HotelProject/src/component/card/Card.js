@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from "@react-navigation/native";
 import { routes } from '../../constants/routes';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { removeWish, addWish } from '../../redux/slice/wishlistSlice'
 
 export default function Card({ item }) {
   const width = Dimensions.get('screen').width / 2 - 30;
@@ -16,7 +17,7 @@ export default function Card({ item }) {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(routes.FAVORITE, { param: item })}
+      onPress={() => navigation.navigate('DetailScreen', { param: item })}
       className="rounded-md px-0 py-0 flex-1 shadow-md bg-gray-200 w-[150px] my-2 mx-1"
     >
       <Image
@@ -30,7 +31,7 @@ export default function Card({ item }) {
           </Text>
         </View>
       {isWishlist ? (
-        <TouchableOpacity onPress={() => dispatch(removeWish(item))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
+        <TouchableOpacity onPress={() => dispatch(removeWish(item?.name))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
           <Icon name="heart" color="#FF5A5A" size={16} />
         </TouchableOpacity>
       ) : (
