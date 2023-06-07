@@ -6,9 +6,9 @@ export const routes ={
 
     HOMETAB: "HomeTab",
     FAVORITES: "Wishlist",
-    
-    PROFILE: "Profile",
-    SETTINGS: "Settings",
 
-    ACCOUNT:"Account",
+    // PROFILE: "Profile",
+    // SETTINGS: "Settings",
+
+    // ACCOUNT:"Account",
 };
