@@ -13,7 +13,6 @@ const bookingSlice = createSlice({
       state.selectHotel = action.payload;
     },
     saveBookingData: (state, action) => {
-      //   state.bookingsData = action.payload;
       state.bookingsData = [...state.bookingsData, action.payload];
     },
   },

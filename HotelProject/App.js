@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeTab from './src/navigation/tabNavigator/HomeTab';
 import store from './src/redux/store';
 import LoginScreen from './src/screens/loginScreen/loginScreen';
-import routes from './src/constants/routes';
 import DetailScreen from './src/screens/detailScreen/DetailScreen';
 
 const Stack = createNativeStackNavigator();

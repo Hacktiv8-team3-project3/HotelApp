@@ -1,14 +1,7 @@
 export const routes ={
+    HOMETAB: "HomeTab",
     LOGIN: "LoginScreen",
-
     DETAIL: "DetailScreen",
     BOOK: "Booking",
 
-    HOMETAB: "HomeTab",
-    FAVORITES: "Wishlist",
-
-    // PROFILE: "Profile",
-    // SETTINGS: "Settings",
-
-    // ACCOUNT:"Account",
 };

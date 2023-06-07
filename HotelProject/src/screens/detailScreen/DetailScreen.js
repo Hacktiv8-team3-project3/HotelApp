@@ -67,7 +67,7 @@ function DetailScreen({ route }) {
 
   return (
     <View className="flex-1 bg-white">
-      <ScrollView className="bg-white">
+      <ScrollView>
         <Image
           source={{
             uri: data?.url_1440 ? data?.url_1440 : "../../assets/bali.jpg",
@@ -153,7 +153,6 @@ function DetailScreen({ route }) {
             <TouchableOpacity
               className="mt-4 py-4 rounded-full justify-center"
               onPress={handleCheck}
-              // onPress={() => navigation.navigate(routes.BOOK)}
             >
               <LinearGradient
                 colors={["#0d9488", "#ffff00"]}
