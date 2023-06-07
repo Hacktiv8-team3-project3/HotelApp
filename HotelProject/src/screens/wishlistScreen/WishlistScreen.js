@@ -1,12 +1,17 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text,ScrollView, Image} from 'react-native';
+import { View, Text,ScrollView, Image, Dimensions} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import images from "../../assets/image";
-import Card from "../../component/card/Card";
+import { useSelector } from 'react-redux';
+import ItemContainer from "../../component/itemContainer";
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const WishlistScreen = () => {
+  const wishlist = useSelector((store) => store.wishlist);
   const navigation = useNavigation();
+  const { height } = Dimensions.get('screen');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -31,54 +36,15 @@ const WishlistScreen = () => {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
       <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">                
-          <Card
-            key={"101"}
-            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
-            title={"Hotel 1"}
-            location={"Jawa Timur"}
-          />
-          <Card
-            key={"102"}
-            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
-            title={"Hotel 2"}
-            location={"Jawa Timur"}
-          />  
-          <Card
-            key={"103"}
-            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
-            title={"Hotel 1"}
-            location={"Jawa Timur"}
-          />
-          <Card
-            key={"104"}
-            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
-            title={"Hotel 2"}
-            location={"Jawa Timur"}
-          />  
-          <Card
-            key={"105"}
-            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
-            title={"Hotel 1"}
-            location={"Jawa Timur"}
-          />
-          <Card
-            key={"106"}
-            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
-            title={"Hotel 2"}
-            location={"Jawa Timur"}
-          />  
-          <Card
-            key={"7"}
-            imageSrc={"https://img.tagvenue.com/resize/c1/ed/widen-1680;8585-mercure-liverpool-atlantic-tower-hotel-venue.jpg"}
-            title={"Hotel 1"}
-            location={"Jawa Timur"}
-          />
-          <Card
-            key={"108"}
-            imageSrc={"https://3.bp.blogspot.com/-oInH9uQj_sU/VwqhgOkaLnI/AAAAAAAAABY/7Bh9s_QhOvEcAE0HXcn5nqiaPL0mZuChg/s1600/hotel.jpg"}
-            title={"Hotel 2"}
-            location={"Jawa Timur"}
-          />        
+        {wishlist.wishlist.length > 0 ? (
+          wishlist.wishlist?.map((item, index) => 
+          <ItemContainer item={item} key={index} />)
+        ) : (
+          <View style={{ minHeight: height / 2, justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+            <Icon name="heart-dislike-outline" size={30} />
+            <Text style={{ lineHeight: 30, fontWeight: '500' }}>No Wishlist</Text>
+          </View>
+        )}
         </View>
       </ScrollView>
     </SafeAreaView>
