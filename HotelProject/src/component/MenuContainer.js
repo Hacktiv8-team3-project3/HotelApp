@@ -2,10 +2,12 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { View, ScrollView, Text, Image } from "react-native";
-import { routes } from "../constants/routes";
+import routes from "../constants/routes.js";
 
 function MenuContainer({ hotels }) {
   const navigation = useNavigation();
+  console.log(routes);
+  
   return (
     <View className="flex-1 justify-center items-center">
       <View className="flex-1 bg-white">

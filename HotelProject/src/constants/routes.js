@@ -2,7 +2,7 @@ const routes ={
     LOGIN: "LoginScreen",
 
     SEARCH: "SearchScreen",
-    DETAIL: "DetailTab",
+    DETAIL: "Detail",
     BOOK: "Booking",
 
     HOMETAB: "HomeTab",
