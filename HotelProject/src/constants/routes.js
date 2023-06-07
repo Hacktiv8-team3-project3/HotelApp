@@ -3,6 +3,5 @@ export const routes ={
     LOGIN: "LoginScreen",
     DETAIL: "DetailScreen",
     BOOKING: "BookingScreen",
-    // FAVORITE : "Wishlist"
 
 };
