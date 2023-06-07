@@ -30,11 +30,11 @@ function DetailScreen({ route }) {
   const dispatch = useDispatch();
   const wishData = useSelector((state) => state.wishlist.wishlist);
 
-  const handleWishlistClick = (item) => {
+  const handleAddWishlist = (item) => {
     dispatch(addWish(item));
   };
 
-  const handleUnWishlistClick = (item) => {
+  const handleNonWishlist = (item) => {
     dispatch(removeWish(item?.name));
   };
 
@@ -49,7 +49,7 @@ function DetailScreen({ route }) {
     button = (
       <TouchableOpacity
         className="w-8 h-8 rounded-md items-center justify-center bg-white"
-        onPress={() => handleUnWishlistClick(data)}
+        onPress={() => handleNonWishlist(data)}
       >
         <Icon name="heart" size={20} color="#0d9488" />
       </TouchableOpacity>
@@ -58,7 +58,7 @@ function DetailScreen({ route }) {
     button = (
       <TouchableOpacity
         className="w-8 h-8 rounded-md items-center justify-center bg-white"
-        onPress={() => handleWishlistClick(data)}
+        onPress={() => handleAddWishlist(data)}
       >
         <Icon name="heart-o" size={20} color="#0d9488" />
       </TouchableOpacity>
@@ -66,11 +66,11 @@ function DetailScreen({ route }) {
   }
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 bg-white">
       <ScrollView className="bg-white">
         <Image
           source={{
-            uri: data?.url_1440 ? data?.url_1440 : "../../assets/sumba.jpg",
+            uri: data?.url_1440 ? data?.url_1440 : "../../assets/bali.jpg",
           }}
           className="w-full h-64"
           resizeMode="cover"
@@ -159,32 +159,19 @@ function DetailScreen({ route }) {
                 colors={["#0d9488", "#ffff00"]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 4, y: 0 }}
-                style={{ padding: 10, borderRadius: 20 }}
-                className="items-center"
+                className="px-10 py-4 rounded-full items-center"
               >
                 <Text className="text-2xl font-semibold uppercase text-gray-100">
-                  Book Now
+                  Book This Hotel
                 </Text>
               </LinearGradient>
             </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-      {/* <Text style={styles.title}>{route.params.userId}</Text> */}
+
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginVertical: 20,
-  },
-});
 
 export default DetailScreen;
