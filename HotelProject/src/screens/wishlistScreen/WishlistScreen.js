@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import images from "../../assets/image";
 import { useSelector } from 'react-redux';
-import ItemContainer from "../../component/itemContainer";
+import Card from "../../component/card/Card";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -38,7 +38,7 @@ const WishlistScreen = () => {
       <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">                
         {wishlist.wishlist.length > 0 ? (
           wishlist.wishlist?.map((item, index) => 
-          <ItemContainer item={item} key={index} />)
+          <Card item={item} key={index} />)
         ) : (
           <View style={{ minHeight: height / 2, justifyContent: 'center', alignItems: 'center', flex: 1 }}>
             <Icon name="heart-dislike-outline" size={30} />
