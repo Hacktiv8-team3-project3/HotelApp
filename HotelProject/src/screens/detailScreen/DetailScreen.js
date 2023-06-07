@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectHotel } from "../../redux/slice/bookingSlice";
 import { LinearGradient } from "expo-linear-gradient";
 import { addWish, removeWish } from "../../redux/slice/wishlistSlice";
+import { NavigationTop } from '../../component';
 
 function DetailScreen({ route }) {
   const navigation = useNavigation();
@@ -74,13 +75,8 @@ function DetailScreen({ route }) {
           className="w-full h-64"
           resizeMode="cover"
         />
-        <View className="flex-row absolute inset-x-0 top-8 px-6 justify-between">
-          <TouchableOpacity
-            className="w-8 h-8 rounded-md items-center justify-center bg-white"
-            onPress={() => navigation.navigate(routes.EXPLORE)}
-          >
-            <AntDesign name="left" size={24} color="#0d9488" />
-          </TouchableOpacity>
+        <View className="flex-row absolute inset-x-0 top-8 px-6 justify-between">         
+          <NavigationTop nameIcon="chevron-back"/>
           {button}
         </View>
         <View className="absolute bg-[#0d9488] rounded-l-full right-0 top-[190px] px-6 py-2">
