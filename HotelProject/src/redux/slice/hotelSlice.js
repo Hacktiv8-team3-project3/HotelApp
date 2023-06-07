@@ -137,7 +137,7 @@ export const fetchHotelPop = createAsyncThunk(
 );
 
 const hotelSlice = createSlice({
-  name: "api",
+  name: "hotels",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
