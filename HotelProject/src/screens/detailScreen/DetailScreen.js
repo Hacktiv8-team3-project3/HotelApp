@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  StyleSheet,
   Text,
   ScrollView,
   Image,
@@ -21,7 +20,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectHotel } from "../../redux/slice/bookingSlice";
 import { LinearGradient } from "expo-linear-gradient";
 import { addWish, removeWish } from "../../redux/slice/wishlistSlice";
-import { NavigationTop } from '../../component';
 
 function DetailScreen({ route }) {
   const navigation = useNavigation();
@@ -45,13 +43,14 @@ function DetailScreen({ route }) {
 
   const isWishlist = wishData.find((wish) => wish.name === data.name);
   let button;
+  
   if (isWishlist) {
     button = (
       <TouchableOpacity
         className="w-8 h-8 rounded-md items-center justify-center bg-white"
         onPress={() => handleNonWishlist(data)}
       >
-        <Icon name="heart" size={20} color="#0d9488" />
+        <Icon name="heart" size={22} color="#fff" />
       </TouchableOpacity>
     );
   } else {
@@ -60,7 +59,7 @@ function DetailScreen({ route }) {
         className="w-8 h-8 rounded-md items-center justify-center bg-white"
         onPress={() => handleAddWishlist(data)}
       >
-        <Icon name="heart-o" size={20} color="#0d9488" />
+        <Icon name="heart-o" size={22} color="#0d9488" />
       </TouchableOpacity>
     );
   }
@@ -80,52 +79,49 @@ function DetailScreen({ route }) {
             className="w-8 h-8 rounded-md items-center justify-center bg-white"
             onPress={() => navigation.navigate(routes.HOMETAB)}
           >
-            <AntDesign name="left" size={24} color="#0d9488" />
+            <AntDesign name="left" size={24} color="#0B646B " />
           </TouchableOpacity>
           {button}
-        </View>
-        <View className="absolute bg-[#0d9488] rounded-l-full right-0 top-[190px] px-6 py-2">
-          <Text className="text-2xl font-bold text-white">$ {data?.price}</Text>
         </View>
         <View className="p-4">
           <Text className="text-2xl font-bold mb-2 text-[#0d9488]">
             {data?.name}
           </Text>
-          <View className="flex-row">
+
+          <Text className="text-2xl font-bold text-[#0B646B]">$ {data?.price}</Text>
+
+          <View className="flex-row mt-2">
             <Fontisto name="map-marker-alt" size={18} color="gray" />
             <Text className="ml-2 text-gray-500 mb-4">{data?.city}</Text>
           </View>
-          <View className="mt-4 flex-row items-center space-x-2 justify-between">
+          <View className="mt-4 flex-column items-left justify-between">
             {data?.ranking && (
               <View className="flex-row items-center">
                 <View className="w-10 h-10 rounded-2xl mr-2 bg-green-100 items-center justify-center shadow-md">
                   <FontAwesome name="trophy" size={24} color="#0d9488" />
                 </View>
                 <View>
-                  <Text className="text-gray-600">{data?.ranking}</Text>
-                  <Text className="text-gray-600">Rankings</Text>
+                  <Text className="text-gray-600">Peringkat Dunia #{data?.ranking}</Text>
                 </View>
               </View>
             )}
             {data?.hotel_class && (
               <View className="flex-row items-center ">
-                <View className="w-10 h-10 rounded-2xl mr-2 bg-green-100 items-center justify-center shadow-md">
+                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 bg-green-100 items-center justify-center shadow-md">
                   <MaterialIcons name="star-rate" size={24} color="#0d9488" />
                 </View>
                 <View>
-                  <Text className="text-gray-600">{data?.hotel_class}</Text>
-                  <Text className="text-gray-600">Hotel Class</Text>
+                  <Text className="text-gray-600">Bintang {data?.hotel_class}</Text>
                 </View>
               </View>
             )}
             {data?.number_of_rooms && (
               <View className="flex-row items-center ">
-                <View className="w-10 h-10 rounded-2xl mr-2 bg-green-100 items-center justify-center shadow-md">
+                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 bg-green-100 items-center justify-center shadow-md">
                   <Fontisto name="room" size={24} color="#0d9488" />
                 </View>
                 <View>
-                  <Text className="text-gray-600">{data?.number_of_rooms}</Text>
-                  <Text className="text-gray-600">Room Number</Text>
+                  <Text className="text-gray-600">Banyak Kamar {data?.number_of_rooms}</Text>
                 </View>
               </View>
             )}
@@ -135,7 +131,7 @@ function DetailScreen({ route }) {
             {data?.zip && (
               <View className="items-center flex-row mt-2">
                 <MaterialCommunityIcons name="post" size={24} color="#0d9488" />
-                <Text className="ml-2 text-lg">Zipcode {data?.zip}</Text>
+                <Text className="ml-2 text-lg">Kode Pos {data?.zip}</Text>
               </View>
             )}
             {data?.address && (
@@ -144,26 +140,16 @@ function DetailScreen({ route }) {
                 <Text className="ml-2 text-lg">{data?.address}</Text>
               </View>
             )}
-            {data?.url && (
-              <View className="items-center flex-row mt-2">
-                <AntDesign name="link" size={24} color="#0d9488" />
-                <Text className="ml-2 text-lg">{data?.url}</Text>
-              </View>
-            )}
+
             <TouchableOpacity
-              className="mt-4 py-4 rounded-full justify-center"
+              className="mt-4 py-4 rounded-full justify-center bg-[#0B646B] items-center"
               onPress={handleCheck}
             >
-              <LinearGradient
-                colors={["#0d9488", "#ffff00"]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 4, y: 0 }}
-                className="px-10 py-4 rounded-full items-center"
-              >
-                <Text className="text-2xl font-semibold uppercase text-gray-100">
+              
+                <Text className="text-2xl font-semibold uppercase text-gray-100 ">
                   Book This Hotel
                 </Text>
-              </LinearGradient>
+
             </TouchableOpacity>
           </View>
         </View>
