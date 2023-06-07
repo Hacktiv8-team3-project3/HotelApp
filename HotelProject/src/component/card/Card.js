@@ -31,7 +31,7 @@ export default function Card({ item }) {
           </Text>
         </View>
       {isWishlist ? (
-        <TouchableOpacity onPress={() => dispatch(removeWish(item))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
+        <TouchableOpacity onPress={() => dispatch(removeWish(item?.name))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
           <Icon name="heart" color="#FF5A5A" size={16} />
         </TouchableOpacity>
       ) : (
