@@ -22,20 +22,22 @@ const BookingHistoryScreen = () => {
         <View className='bg-white py-3 rounded-lg flex-row items-center justify-evenly' >
            <Icon name="person-circle-outline" size={50} />
           <View>
-            <Text className='text-xl font-bold'>Nama</Text>
-            <Text>{profile.login?.username}</Text>
+            <Text className='text-xl font-bold'>{profile.login?.name}</Text>
+            <Text>{profile.login?.email}</Text>
           </View>
         </View>
-        {/* <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, marginVertical: 10 }}> */}
         <View className='shadow-lg bg-white p-3 rounded-lg my-8' >
           <View className='mb-1.5 min-h-screen'>
             <Text className='text-lg font-bold' >History Book</Text>
             <View className='my-8 flex-wrap flex-row justify-between'>
-              
+            {/* {profile.historyBook.length > 0 ? (
+                profile.historyBook?.map((book, index) => <Card item={book.item} key={index} />)
+              ) : ( */}
                 <View className="flex-1 justify-center items-center min-h-screen">
                   <Icon name="trash-bin-outline" size={30} />
                   <Text className='leading-7 font-extralight'>No History Books</Text>
                 </View>
+              {/* )} */}
             </View>
           </View>
         </View>
