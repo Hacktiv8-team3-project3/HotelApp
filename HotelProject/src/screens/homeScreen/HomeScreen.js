@@ -21,9 +21,8 @@ import {
   getAllHotel,
 } from "../../redux/slice/hotelSlice";
 import ItemContainer from "../../component/itemContainer";
-import MenuContainer from "../../component/menuContainer";
 import { useDispatch, useSelector } from "react-redux";
-
+import MenuContainer from "../../component/MenuContainer";
 
 const HomeScreen = () => {
 

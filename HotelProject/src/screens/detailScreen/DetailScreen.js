@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectHotel } from "../../redux/slice/bookingSlice";
 import { LinearGradient } from "expo-linear-gradient";
 import { addWish, removeWish } from "../../redux/slice/wishlistSlice";
+import { NavigationTop } from '../../component';
 
 function DetailScreen({ route }) {
   const navigation = useNavigation();

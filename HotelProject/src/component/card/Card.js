@@ -1,18 +1,14 @@
 import { View, Text, TouchableOpacity, Image, Dimensions} from 'react-native'
-// import { View, Text, TouchableOpacity, Image} from 'react-native'
 import React, { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { removeWish, addWish } from '../../redux/slice/wishlistSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from "@react-navigation/native";
-// import { routes } from "../constants/routes";
-// import { FontAwesome } from "@expo/vector-icons";
-// import Icon from 'react-native-vector-icons/Ionicons';
+import { routes } from '../../constants/routes';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Card({ item }) {
   const width = Dimensions.get('screen').width / 2 - 30;
-  // const data = route?.params?.param;
-  // const wishData = useSelector((state) => state.wishlist.wishlist);
   const navigation = useNavigation();
+  console.log(routes);
   const dispatch = useDispatch();
   const wishlist = useSelector((store) => store.wishlist);
   const isWishlist = wishlist.wishlist.length > 0 ? wishlist.wishlist.find((wish) => wish.name === item.name) : false;
@@ -20,11 +16,11 @@ export default function Card({ item }) {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("ItemScreen", { data : item })}
+      onPress={() => navigation.navigate(routes.FAVORITE, { param: item })}
       className="rounded-md px-0 py-0 flex-1 shadow-md bg-gray-200 w-[150px] my-2 mx-1"
     >
       <Image
-        source={{ uri: data?.url_1440 ? data?.url_1440 : "../../assets/sumba.jpg",}}
+        source={{ uri: item?.url_1440 ? item?.url_1440 : "../../assets/sumba.jpg",}}
         className="w-full h-20 rounded-md object-cover"
       />
       <View style={{ position: 'absolute', left: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
@@ -54,33 +50,5 @@ export default function Card({ item }) {
         </View>
       </View>
     </TouchableOpacity>
-    // <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-    //   {hotels?.map((destination, idx) => (
-    //     <TouchableOpacity
-    //       key={idx}
-    //       className="mr-4 rounded-xl shadow-black"
-    //       onPress={() =>
-    //         navigation.navigate(routes.DETAIL, { param: destination })
-    //       }
-    //     >
-    //       <Image
-    //         source={{
-    //           uri: destination?.url_1440
-    //             ? destination?.url_1440
-    //             : "../assets/bali.jpg",
-    //         }}
-    //         className="w-40 h-32 rounded-xl opacity-90"
-    //         resizeMode="cover"
-    //       />
-    //       <View className="absolute top-[80px] px-2 py-2 ">
-    //         <Text className="text-white text-lg font-bold outline-4">
-    //           {destination.name?.length > 14
-    //             ? `${destination?.name?.slice(0, 14)}..`
-    //             : destination.name}
-    //         </Text>
-    //       </View>
-    //     </TouchableOpacity>
-    //   ))}
-    // </ScrollView>
   )
 }
