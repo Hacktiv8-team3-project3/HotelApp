@@ -37,7 +37,7 @@ function DetailScreen({ route }) {
 
   const handleCheck = () => {
      dispatch(selectHotel(data));
-    navigation.navigate(routes.BOOK);
+    navigation.navigate(routes.BOOKING);
   };
 
   const isWishlist = wishData.find((wish) => wish.name === data.name);

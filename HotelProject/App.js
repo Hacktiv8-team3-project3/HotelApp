@@ -7,6 +7,8 @@ import HomeTab from './src/navigation/tabNavigator/HomeTab';
 import store from './src/redux/store';
 import LoginScreen from './src/screens/loginScreen/loginScreen';
 import DetailScreen from './src/screens/detailScreen/DetailScreen';
+import BookingScreen from './src/screens/bookingScreen/BookingScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +27,7 @@ export default function App() {
               option={({ route }) => ({
                 title: route.params.userId,
               })} />
+            <Stack.Screen name="BookingScreen" component={BookingScreen} />
           </Stack.Navigator>
           <StatusBar barStyle="dark-content" backgroundColor="rgba(0,0,0,0)" />
         </NavigationContainer>

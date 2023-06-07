@@ -7,7 +7,7 @@ const ItemContainer = ({ hotels }) => {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1 justify-center items-center">
+    <View className="flex-1 justify-center items-center mt-6 mb-4">
       <View className="flex-1 bg-white">
 
         <Text className="text-[#2C7379] text-[20px] font-bold">
@@ -29,7 +29,7 @@ const ItemContainer = ({ hotels }) => {
                     ? destination?.url_1440
                     : "../assets/bali.jpg",
                 }}
-                className="w-40 h-32 rounded-xl opacity-90"
+                className="w-44 h-36 rounded-xl opacity-90"
                 resizeMode="cover"
               />
               <View className="absolute top-[80px] px-2 py-2 ">
