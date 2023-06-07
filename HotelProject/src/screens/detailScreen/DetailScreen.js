@@ -37,7 +37,7 @@ function DetailScreen({ route }) {
 
   const handleCheck = () => {
      dispatch(selectHotel(data));
-    navigation.navigate(routes.BOOK);
+    navigation.navigate(routes.BOOKING);
   };
 
   const isWishlist = wishData.find((wish) => wish.name === data.name);
@@ -94,20 +94,10 @@ function DetailScreen({ route }) {
             <Text className="ml-2 text-gray-500 mb-4">{data?.city}</Text>
           </View>
           <View className="mt-4 flex-column items-left justify-between">
-            {data?.ranking && (
-              <View className="flex-row items-center">
-                <View className="w-10 h-10 rounded-2xl mr-2 bg-green-100 items-center justify-center shadow-md">
-                  <FontAwesome name="trophy" size={24} color="#0d9488" />
-                </View>
-                <View>
-                  <Text className="text-gray-600">Peringkat Dunia #{data?.ranking}</Text>
-                </View>
-              </View>
-            )}
             {data?.hotel_class && (
               <View className="flex-row items-center ">
-                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 bg-green-100 items-center justify-center shadow-md">
-                  <MaterialIcons name="star-rate" size={24} color="#0d9488" />
+                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 items-center justify-center shadow-md">
+                  <MaterialIcons name="star-rate" size={24} color="orange" />
                 </View>
                 <View>
                   <Text className="text-gray-600">Bintang {data?.hotel_class}</Text>
@@ -116,8 +106,8 @@ function DetailScreen({ route }) {
             )}
             {data?.number_of_rooms && (
               <View className="flex-row items-center ">
-                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 bg-green-100 items-center justify-center shadow-md">
-                  <Fontisto name="room" size={24} color="#0d9488" />
+                <View className="w-10 h-10 rounded-2xl mr-2 mt-2 items-center justify-center shadow-md">
+                  <Fontisto name="room" size={24} color="orange" />
                 </View>
                 <View>
                   <Text className="text-gray-600">Banyak Kamar {data?.number_of_rooms}</Text>

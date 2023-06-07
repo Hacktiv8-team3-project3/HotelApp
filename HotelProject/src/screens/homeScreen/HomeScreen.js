@@ -22,7 +22,7 @@ import {
 } from "../../redux/slice/detailSlice";
 import { useDispatch, useSelector } from "react-redux";
 import ItemContainer from "../../component/itemContainer";
-import MenuContainer from "../../component/menuContainer";
+import MenuContainer from "../../component/MenuContainer";
 
 const HomeScreen = () => {
 
@@ -194,10 +194,10 @@ const HomeScreen = () => {
             
             {hotels?.length > 0 ? (
               <>
-              <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+              <View className="px-4 mt-8 flex-column items-center justify-evenly">
                 <MenuContainer hotels={popHotels} />
                 <ItemContainer hotels={idHotels} />
-                </View>
+              </View>
               </>
             ) : (
               <>
