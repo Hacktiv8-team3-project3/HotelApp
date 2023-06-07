@@ -21,7 +21,7 @@ export default function App() {
             <Stack.Screen name="HomeTab" component={HomeTab} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen
-              name="DetailTab"
+              name="DetailScreen"
               component={DetailScreen}
               option={({ route }) => ({
                 title: route.params.userId,

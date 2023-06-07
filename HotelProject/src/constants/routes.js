@@ -1,17 +1,14 @@
-const routes ={
+export const routes ={
     LOGIN: "LoginScreen",
 
-    SEARCH: "SearchScreen",
-    DETAIL: "Detail",
+    DETAIL: "DetailScreen",
     BOOK: "Booking",
 
     HOMETAB: "HomeTab",
-    EXPLORE: "Explore",
-    FAVORITES: "Favorites",
+    FAVORITES: "Wishlist",
+    
     PROFILE: "Profile",
     SETTINGS: "Settings",
 
     ACCOUNT:"Account",
 };
-
-export default {routes};
