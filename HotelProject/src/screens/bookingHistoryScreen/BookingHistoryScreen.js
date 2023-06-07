@@ -30,8 +30,8 @@ const BookingHistoryScreen = () => {
           <View className='mb-1.5 min-h-screen'>
             <Text className='text-lg font-bold' >History Book</Text>
             <View className='my-8 flex-wrap flex-row justify-between'>
-            {/* {profile.historyBook.length > 0 ? (
-                profile.historyBook?.map((book, index) => <Card item={book.item} key={index} />)
+            {/* {booking.bookingsData.length > 0 ? (
+                booking.bookingsData?.map((book, index) => <Card item={book.item} key={index} />)
               ) : ( */}
                 <View className="flex-1 justify-center items-center min-h-screen">
                   <Icon name="trash-bin-outline" size={30} />
