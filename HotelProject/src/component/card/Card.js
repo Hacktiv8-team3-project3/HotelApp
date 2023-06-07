@@ -1,17 +1,24 @@
 import { View, Text, TouchableOpacity, Image} from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeWish, addWish } from '../../redux/slice/wishlistSlice';
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const Card = ({ imageSrc, title, location, }) => {
+export default function Card({ item }) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const profile = useSelector((store) => store.profile);
+  const isSaved = hotels.wishlist.length > 0 ? hotels.wishlist.find((wish) => wish.name === item.name) : false;
+
+  useEffect(() => {}, [profile]);
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("ItemScreen", { param: data })}
+      onPress={() => navigation.navigate("ItemScreen", { data: item })}
       className="rounded-md px-0 py-0 flex-1 shadow-md bg-gray-200 w-[150px] my-2 mx-1"
     >
       <Image
-        source={{ uri: imageSrc }}
+        source={{ uri: item.images?.original?.url }}
         className="w-full h-20 rounded-md object-cover"
       />
 
@@ -34,5 +41,3 @@ const Card = ({ imageSrc, title, location, }) => {
     </TouchableOpacity>
   )
 }
-
-export default Card
