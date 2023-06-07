@@ -50,7 +50,7 @@ function DetailScreen({ route }) {
         className="w-8 h-8 rounded-md items-center justify-center bg-white"
         onPress={() => handleNonWishlist(data)}
       >
-        <Icon name="heart" size={22} color="#fff" />
+        <Icon name="heart" size={22} color="#0d9488" />
       </TouchableOpacity>
     );
   } else {
