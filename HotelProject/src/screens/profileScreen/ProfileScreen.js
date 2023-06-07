@@ -123,21 +123,21 @@ const MenuScreen = () => {
         </View>
       </ScrollView>
       {isLogout && (
-        <View className='w-full h-full absolute px-4 bg-white items-center mb-1.5'>
-          <View className='mt-10 rounded-3xl absolute px-4 bg-white items-center mb-1.5 p-5 justify-centar' >
-            <View className='fl-1, justify-center Items-center'>
+        <View className='w-full h-full absolute items-center mb-1.5'>
+          <View className='w-9/12 h-1/5 mt-11 rounded-3xl absolute top-60 bg-white items-center mb-1.5 p-5 justify-centar' >
+            <View className='flex-1, justify-center items-center'>
               <Icon name="log-out-outline" size={50} color="#FF5A5A" />
               <Text className="text-red-700 font-semibold tracking-widest">Are You Sure to Logout? </Text>
             </View>
             <View className='flex-row'>
-              <TouchableOpacity onPress={() => setIsLogout((prevLogout) => !prevLogout)} className='lmt-1.5'>
-                <View className='py-2 px-7 rounded-3xl bg-yellow' >
-                  <Text className="text-white text-[15px] text-center items-center">Cancel</Text>
+              <TouchableOpacity onPress={() => setIsLogout((prevLogout) => !prevLogout)} className='mr-2.5 mt-1.5'>
+                <View className='py-2.5 px-5 rounded-3xl bg-yellow-400' >
+                  <Text className="text-white font-bold">Cancel</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={HandleLogout}>
-                <View sclassName='py-2 px-7 rounded-3xl bg-yellow' >
-                  <Text className="text-white text-[15px] text-center items-center">Logout</Text>
+                <View className='mt-1.5 py-2.5 px-5 rounded-3xl bg-[#3EBDC6]' >
+                  <Text className="text-white font-bold">Logout</Text>
                 </View>
               </TouchableOpacity>
             </View>
