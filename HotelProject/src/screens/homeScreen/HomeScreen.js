@@ -22,7 +22,7 @@ import {
 } from "../../redux/slice/hotelSlice";
 import ItemContainer from "../../component/itemContainer";
 import { useDispatch, useSelector } from "react-redux";
-import MenuContainer from "../../component/menuContainer";
+import MenuContainer from "../../component/MenuContainer";
 
 const HomeScreen = () => {
 
