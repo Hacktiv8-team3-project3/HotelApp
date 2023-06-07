@@ -12,12 +12,9 @@ const bookingSlice = createSlice({
     selectHotel: (state, action) => {
       state.selectHotel = action.payload;
     },
-    saveBookingData: (state, action) => {
-      state.bookingsData = [...state.bookingsData, action.payload];
-    },
   },
 });
 
-export const { selectHotel, saveBookingData } = bookingSlice.actions;
+export const { selectHotel } = bookingSlice.actions;
 
 export default bookingSlice.reducer;

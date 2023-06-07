@@ -18,7 +18,6 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useDispatch, useSelector } from "react-redux";
 import { selectHotel } from "../../redux/slice/bookingSlice";
-import { LinearGradient } from "expo-linear-gradient";
 import { addWish, removeWish } from "../../redux/slice/wishlistSlice";
 
 function DetailScreen({ route }) {
