@@ -12,6 +12,7 @@ import {
   
   const BookingScreen = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
     const profile = useSelector((store) => store.profile);
     const selectedHotel = useSelector((state) => state.booking.selectHotel);
     const [name, setName] = useState("");
@@ -27,7 +28,11 @@ import {
           navigation.navigate('LoginScreen');
         }
       }, [profile]);
-  
+
+    const handleCheckout = () => {
+      navigation.navigate('HomeTab');
+    };
+
     return (
       <SafeAreaView className="bg-white">
           <View className="mt-10 p-5 bg-white">
@@ -132,6 +137,7 @@ import {
             </View>
             <TouchableOpacity
               className="py-3 rounded-full rounded-3xl bg-[#0B646B]"
+              onPress={handleCheckout}
             >
             <Text className="text-white text-center font-bold">Checkout</Text>
             </TouchableOpacity>
