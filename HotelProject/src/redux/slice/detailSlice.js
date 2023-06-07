@@ -135,7 +135,7 @@ export const fetchHotelPop = createAsyncThunk(
   }
 );
 
-const hotelSlice = createSlice({
+const detailSlice = createSlice({
   name: "hotels",
   initialState,
   reducers: {},
@@ -180,4 +180,4 @@ const hotelSlice = createSlice({
 });
 
 export const getAllHotel = (state) => state.hotels.data;
-export default hotelSlice.reducer;
+export default detailSlice.reducer;

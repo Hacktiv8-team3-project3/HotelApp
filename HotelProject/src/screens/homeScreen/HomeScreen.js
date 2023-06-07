@@ -19,10 +19,10 @@ import {
   fetchHotelId,
   fetchHotelPop,
   getAllHotel,
-} from "../../redux/slice/hotelSlice";
-import ItemContainer from "../../component/itemContainer";
+} from "../../redux/slice/detailSlice";
 import { useDispatch, useSelector } from "react-redux";
-import MenuContainer from "../../component/MenuContainer";
+import ItemContainer from "../../component/itemContainer";
+import MenuContainer from "../../component/menuContainer";
 
 const HomeScreen = () => {
 
@@ -164,6 +164,7 @@ const HomeScreen = () => {
         </TouchableOpacity>
 
       </View>
+      {/* search bar */}
 
       {/* Fetch */}
       {isLoading ? (
@@ -189,7 +190,8 @@ const HomeScreen = () => {
           </View>
 
             
-          <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+          <ScrollView>
+            <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
             {hotels?.length > 0 ? (
               <>
                 <MenuContainer hotels={popHotels} />
@@ -208,7 +210,8 @@ const HomeScreen = () => {
                 </View>
               </>
             )}
-          </View>
+            </View>
+          </ScrollView>
 
 
         </ScrollView>
