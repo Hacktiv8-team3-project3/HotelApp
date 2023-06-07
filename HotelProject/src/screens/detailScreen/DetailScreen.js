@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import routes from "../../constants/routes";
+import { routes } from "../../constants/routes";
 import { 
     AntDesign,
     MaterialCommunityIcons, 
@@ -77,7 +77,7 @@ function DetailScreen({ route }) {
         <View className="flex-row absolute inset-x-0 top-8 px-6 justify-between">
           <TouchableOpacity
             className="w-8 h-8 rounded-md items-center justify-center bg-white"
-            onPress={() => navigation.navigate(routes.EXPLORE)}
+            onPress={() => navigation.navigate(routes.HOMETAB)}
           >
             <AntDesign name="left" size={24} color="#0d9488" />
           </TouchableOpacity>
