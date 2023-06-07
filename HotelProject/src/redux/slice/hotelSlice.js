@@ -18,7 +18,7 @@ export const fetchHotelData = createAsyncThunk(
     } = await axios.get(`https://booking-com.p.rapidapi.com/v1/static/hotels`, {
       params: { page: "0" },
       headers: {
-        "X-RapidAPI-Key": "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+        "X-RapidAPI-Key": "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
         "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
       },
     });
@@ -31,7 +31,7 @@ export const fetchHotelData = createAsyncThunk(
         },
         headers: {
           "X-RapidAPI-Key":
-            "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+            "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
           "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
         },
       }
@@ -60,7 +60,7 @@ export const fetchHotelId = createAsyncThunk(
     } = await axios.get(`https://booking-com.p.rapidapi.com/v1/static/hotels`, {
       params: { page: "0", country: "id" },
       headers: {
-        "X-RapidAPI-Key": "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+        "X-RapidAPI-Key": "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
         "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
       },
     });
@@ -73,7 +73,7 @@ export const fetchHotelId = createAsyncThunk(
         },
         headers: {
           "X-RapidAPI-Key":
-            "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+            "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
           "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
         },
       }
@@ -102,7 +102,7 @@ export const fetchHotelPop = createAsyncThunk(
     } = await axios.get(`https://booking-com.p.rapidapi.com/v1/static/hotels`, {
       params: { page: "0", country: "kr" },
       headers: {
-        "X-RapidAPI-Key": "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+        "X-RapidAPI-Key": "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
         "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
       },
     });
@@ -115,7 +115,7 @@ export const fetchHotelPop = createAsyncThunk(
         },
         headers: {
           "X-RapidAPI-Key":
-            "db6befb25bmsh7289730c21c3fbfp15e6ddjsna064d26b23d3",
+            "2087ba9afamsh7d7731460f3d30fp1e401bjsnfef2f3cb78a2",
           "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
         },
       }

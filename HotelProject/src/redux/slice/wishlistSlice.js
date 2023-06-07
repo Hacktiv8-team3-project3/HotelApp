@@ -4,12 +4,12 @@ const initialState = {
   wishlist: [],
 };
 
-export const wishlistSlice = createSlice({
+const wishlistSlice = createSlice({
   name: "wishlist",
-  initialState,
+  initialState: initialState,
   reducers: {
     addWish: (state, action) => {
-      const existsItem = state.wishlists.find(
+      const existsItem = state.wishlist.find(
         (item) => item.name === action.payload?.name
       );
       if (!existsItem) {
