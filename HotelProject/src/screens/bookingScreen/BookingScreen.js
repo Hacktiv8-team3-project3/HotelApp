@@ -5,13 +5,14 @@ import {
   TouchableOpacity,
   TextInput,
   Dimensions,
-  // ScrollView,
+  ScrollView,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-// import { selectHotel } from "../../redux/slice/bookingSlice";
+import { saveBookingData } from "../../redux/slice/bookingSlice";
+import { routes } from "../../constants/routes";
 
 const BookingScreen = ({route}) => {
   const { width, height } = Dimensions.get('screen');
@@ -26,9 +27,10 @@ const BookingScreen = ({route}) => {
   const [hari, setHari] = useState("");
   const [kamar, setKamar] = useState("");
   const [guests, setGuests] = useState("");
-   const [total, setTotal] = useState(0);
-   const [isEmpty, setIsEmpty] = useState(false);
-   const [isBookSuccess, setIsBookSuccess] = useState(false);
+  
+  const [total, setTotal] = useState(0);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isBookSuccess, setIsBookSuccess] = useState(false);
   let item = route?.params?.param;
 
   useEffect(() => {
@@ -39,14 +41,20 @@ const BookingScreen = ({route}) => {
     }, [name, email, phone, guests, hari, kamar, total, profile]);
 
   const handleCheckout = () => {
-  //   navigation.navigate('HomeTab');
-  // };
-    if (name === '' || email === '' || phone === '' || hari === '' || kamar === '' || guests === '') {
-      setIsEmpty((prevEmpty) => !prevEmpty);
-      return;
-    }
-    dispatch(selectedHotel({ item, detailBook: { name: name, email: email, phone: phone, kamar : kamar,  guests: guests, hari: hari, total: total } }));
-    setIsBookSuccess((prevSuccess) => !prevSuccess);
+    const newBookingData = {
+      // ...bookingData,
+      hotel: selectedHotel,
+      name: name,
+      email: email,
+      codePhone: codePhone,
+      phone: phone,
+      hari: hari,
+      kamar: kamar,
+      guests: guests,
+    };
+
+    dispatch(saveBookingData(newBookingData));
+    navigation.navigate(routes.PROFILE);
   };
 
   return (

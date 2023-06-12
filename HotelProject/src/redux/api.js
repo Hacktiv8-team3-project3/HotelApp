@@ -3,9 +3,8 @@ import axios from "axios";
 const api = axios.create({
   baseURL: "https://booking-com.p.rapidapi.com/v1/",
   headers: {
-    "X-RapidAPI-Key": '698813ef96msh480db2f8fbe3864p128db5jsnadc3425ff540',
+    "X-RapidAPI-Key": 'bf629fbebcmsh502d3f109d0da72p13e5c4jsn8e335b5b5a85',
     "X-RapidAPI-Host": "booking-com.p.rapidapi.com",
-    //cadangan 698813ef96msh480db2f8fbe3864p128db5jsnadc3425ff540
   },
 });
 

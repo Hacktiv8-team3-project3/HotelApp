@@ -3,5 +3,5 @@ export const routes ={
     LOGIN: "LoginScreen",
     DETAIL: "DetailScreen",
     BOOKING: "BookingScreen",
-
+    PROFILE: "BookingHistoryScreen"
 };
