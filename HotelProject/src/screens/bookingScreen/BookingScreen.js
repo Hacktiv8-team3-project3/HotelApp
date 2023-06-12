@@ -54,7 +54,7 @@ const BookingScreen = ({route}) => {
     };
 
     dispatch(saveBookingData(newBookingData));
-    navigation.navigate(routes.PROFILE);
+    navigation.navigate(routes.HOMETAB);
   };
 
   return (

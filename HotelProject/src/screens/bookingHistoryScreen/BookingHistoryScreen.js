@@ -31,16 +31,14 @@ const BookingHistoryScreen = () => {
   return (
 
     <>
+    <SafeAreaView>
+      <View className="flex items-center mt-5">
+        <Text className="text-2xl font-bold mb-5">Booking History</Text>
+      </View>
       {userBookings?.length > 0 ? (
-        <>
-          
+        <>  
           {userBookings.map((item, index) => (
-            <SafeAreaView>
 
-            <View className="flex items-center mt-5">
-              <Text className="text-2xl font-bold mb-5">Booking History</Text>
-            </View>
-            
             <View
               key={index}
               className="flex-row bg-white rounded-lg shadow space-x-2 p-4 mb-4"
@@ -74,7 +72,7 @@ const BookingHistoryScreen = () => {
               </View>
             </View>
 
-            </SafeAreaView>
+            
           ))}
         </>
       ) : (
@@ -95,6 +93,7 @@ const BookingHistoryScreen = () => {
           </TouchableOpacity>
         </View>
       )}
+      </SafeAreaView>
     </>
 
     // <SafeAreaView>
