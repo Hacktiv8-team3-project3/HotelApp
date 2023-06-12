@@ -65,10 +65,10 @@ const BookingHistoryScreen = () => {
                 </Text>
               </View>
               <View className="absolute top-10 left-[290px]">
+                <Text className="text-gray-500">Total Paid</Text>
                 <Text className="font-bold text-2xl text-[#0d9488]">
                   $ {item?.hotel?.price}
                 </Text>
-                <Text className="text-gray-500">/per night</Text>
               </View>
             </View>
 
