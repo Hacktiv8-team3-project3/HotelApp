@@ -32,8 +32,8 @@ const ItemContainer = ({ hotels }) => {
                 className="w-44 h-36 rounded-xl opacity-90"
                 resizeMode="cover"
               />
-              <View className="absolute top-[80px] px-2 py-2 ">
-                <Text className="text-white text-lg font-bold outline-4">
+              <View className="absolute top-[80px] px-2 py-9 ">
+                <Text className="text-white text-l font-bold outline-4">
                   {destination.name?.length > 14
                     ? `${destination?.name?.slice(0, 14)}..`
                     : destination.name}

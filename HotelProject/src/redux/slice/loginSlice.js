@@ -8,7 +8,7 @@ const initialState = {
 
 export const loginUser = createAsyncThunk('profile/loginUser', async ({ username, password, redirect, notFound }) => {
   try {
-    if (username === 'johndoe' && password === '12345') {
+    if (username === 'Johndoe' && password === '12345') {
       redirect(true);
       return { name: 'Kelompok 3', email: 'johndoe@gmail.com', phoneNumber: '0123456' };
     }
