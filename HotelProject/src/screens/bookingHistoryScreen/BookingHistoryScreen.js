@@ -3,14 +3,10 @@ import {
   View,
   Text,
   Image,
-  FlatList,
   TouchableOpacity,
-  ScrollView,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import Card from '../../component/card/Card';
+import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinearGradient } from "expo-linear-gradient";
 import { routes } from '../../constants/routes';
@@ -20,7 +16,6 @@ const BookingHistoryScreen = () => {
   const profile = useSelector((store) => store.profile);
   const userData = useSelector((state) => state.profile.login);
   const navigation = useNavigation();
-  const dispatch = useDispatch();
   const bookings = useSelector((state) => state.booking.bookingsData);
 
   const userBookings = bookings.filter(
@@ -36,8 +31,6 @@ const BookingHistoryScreen = () => {
   return (
 
     <>
-
-      
       {userBookings?.length > 0 ? (
         <>
           
@@ -103,7 +96,7 @@ const BookingHistoryScreen = () => {
         </View>
       )}
     </>
-    
+
     // <SafeAreaView>
     //   <ScrollView showsVerticalScrollIndicator={false} className='pt-8 px-5'>
     //     <View className='bg-white py-3 rounded-lg flex-row items-center justify-evenly' >

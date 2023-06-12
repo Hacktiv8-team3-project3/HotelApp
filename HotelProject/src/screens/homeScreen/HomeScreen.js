@@ -195,8 +195,8 @@ const HomeScreen = () => {
             {hotels?.length > 0 ? (
               <>
               <View className="px-4 mt-8 flex-column items-center justify-evenly">
-                <MenuContainer hotels={popHotels} />
-                <ItemContainer hotels={idHotels} />
+                {/* <MenuContainer hotels={popHotels} />
+                <ItemContainer hotels={idHotels} /> */}
               </View>
               </>
             ) : (
