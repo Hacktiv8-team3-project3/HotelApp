@@ -1,5 +1,7 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { useEffect } from 'react';
+// import { Card } from '../../component';
+import Card from '../../component/card/Card';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +9,8 @@ import { useNavigation } from '@react-navigation/native';
 
 const BookingHistoryScreen = () => {
   const profile = useSelector((store) => store.profile);
+  // const booking = useSelector((state) => state.booking.selectHotel);
+  const booking = useSelector((store) => store.booking);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -30,14 +34,14 @@ const BookingHistoryScreen = () => {
           <View className='mb-1.5 min-h-screen'>
             <Text className='text-lg font-bold' >History Book</Text>
             <View className='my-8 flex-wrap flex-row justify-between'>
-            {/* {booking.bookingsData.length > 0 ? (
-                booking.bookingsData?.map((book, index) => <Card item={book.item} key={index} />)
-              ) : ( */}
+            {booking.historyBook.length > 0 ? (
+                booking.historyBook?.map((item, index) => <Card item={item} key={index} />)
+              ) : (
                 <View className="flex-1 justify-center items-center min-h-screen">
                   <Icon name="trash-bin-outline" size={30} />
                   <Text className='leading-7 font-extralight'>No History Books</Text>
                 </View>
-              {/* )} */}
+              )} 
             </View>
           </View>
         </View>
