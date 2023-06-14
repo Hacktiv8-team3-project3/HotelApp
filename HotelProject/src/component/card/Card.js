@@ -31,7 +31,7 @@ export default function Card({ item }) {
           </Text>
         </View>
       {isWishlist ? (
-        <TouchableOpacity onPress={() => dispatch(removeWish(item?.name))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
+        <TouchableOpacity onPress={() => dispatch(removeWish(item.name))} style={{ position: 'absolute', right: 10, top: 5, backgroundColor: 'rgba(255,255,255,0.2)', padding: 4, borderRadius: 50, elevation: 2 }}>
           <Icon name="heart" color="#FF5A5A" size={16} />
         </TouchableOpacity>
       ) : (
@@ -41,12 +41,12 @@ export default function Card({ item }) {
       )}
       <View style={{ padding: 8, justifyContent: 'space-between', flex: 1 }}>
         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' }}>
-          <Text style={{ fontWeight: '600', flex: 1, lineHeight: 24 }}>{item?.name}</Text>
+          <Text style={{ fontWeight: '600', flex: 1, lineHeight: 24 }}>{item.name}</Text>
         </View>
         <View style={{ paddingTop: 10, flexDirection: 'row', flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
           <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingRight: 5 }}>
             <Icon name="location" size={16} color="red" />
-            <Text style={{ fontSize: 10, marginLeft: 6 }}>{item?.address}</Text>
+            <Text style={{ fontSize: 10, marginLeft: 6 }}>{item.address}</Text>
           </View>
         </View>
       </View>

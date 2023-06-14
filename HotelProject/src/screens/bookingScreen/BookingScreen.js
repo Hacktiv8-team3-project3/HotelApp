@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveBookingData } from "../../redux/slice/bookingSlice";
 import { routes } from "../../constants/routes";
 
-const BookingScreen = ({route}) => {
+const BookingScreen = ({ route }) => {
   const { width, height } = Dimensions.get('screen');
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -31,6 +31,17 @@ const BookingScreen = ({route}) => {
   const [total, setTotal] = useState(0);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isBookSuccess, setIsBookSuccess] = useState(false);
+  const newBookingData = {
+    // ...bookingData,
+    hotel: selectedHotel,
+    name: name,
+    email: email,
+    codePhone: codePhone,
+    phone: phone,
+    hari: hari,
+    kamar: kamar,
+    guests: guests,
+  };
   let item = route?.params?.param;
 
   useEffect(() => {
@@ -41,20 +52,13 @@ const BookingScreen = ({route}) => {
     }, [name, email, phone, guests, hari, kamar, total, profile]);
 
   const handleCheckout = () => {
-    const newBookingData = {
-      // ...bookingData,
-      hotel: selectedHotel,
-      name: name,
-      email: email,
-      codePhone: codePhone,
-      phone: phone,
-      hari: hari,
-      kamar: kamar,
-      guests: guests,
-    };
-
+    if (name === '' || email === '' || phone === '' || guests === '' || hari === '' || kamar === '') {
+      setIsEmpty((prevEmpty) => !prevEmpty);
+      return;
+    }
     dispatch(saveBookingData(newBookingData));
-    navigation.navigate(routes.HOMETAB);
+    // navigation.navigate(routes.HOMETAB);
+    setIsBookSuccess((prevSuccess) => !prevSuccess);
   };
 
   return (
@@ -106,7 +110,7 @@ const BookingScreen = ({route}) => {
               <TextInput
                 className="py-2 px-3 font-bold tracking-wide bg-white truncate text-center"
                 placeholder="1"
-                placeholderTextColor="#fff"
+                placeholderTextColor="#C9C9C9"
                 value={hari}
                 maxLength={3}
                 onChangeText={(text) => setHari(text)}
