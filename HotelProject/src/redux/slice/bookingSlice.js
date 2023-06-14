@@ -14,7 +14,8 @@ const bookingSlice = createSlice({
     },
     saveBookingData: (state, action) => {
       //   state.bookingsData = action.payload;
-      state.bookingsData = [...state.bookingsData, action.payload];
+      // state.bookingsData = [...state.bookingsData, action.payload];
+    state.bookingsData.push(action.payload);
     },
   },
 });

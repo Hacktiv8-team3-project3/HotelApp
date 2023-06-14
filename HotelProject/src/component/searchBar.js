@@ -6,6 +6,13 @@ function SearchBar() {
 
   const handleWhereToGoSubmit = () => {
     console.log("Search Text:", searchText);
+    // if (searchText !== '') {
+    //   fetchHotelData(searchText).then((res) => {
+    //     fetchHotelData({ hotel_id: res.hotel_id }).then((resHotel) => {
+    //       setDataHotel(resHotel);
+    //     });
+    //   });
+    // }
   };
   return (
     <View className="fixed top-0 left-0 right-0 z-10 bg-gray-300 rounded-md mx-4 mt-4 p-4">
@@ -33,7 +40,7 @@ function SearchBar() {
 
         </TouchableOpacity> */}
       </View>
-    </View>
+    // </View>
   );
 }
 
